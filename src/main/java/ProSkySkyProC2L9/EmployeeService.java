@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 
 @Service
 public class EmployeeService {
-    List<Employee> arr = new ArrayList<>();
+    private List<Employee> arr = new ArrayList<>();
 
     public String getMaxDepartmentSalary(int department) {
         /*
