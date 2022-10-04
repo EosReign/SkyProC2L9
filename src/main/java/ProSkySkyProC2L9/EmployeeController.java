@@ -35,7 +35,7 @@ public class EmployeeController {
         }
     }
 //Как использовать конструкцию мэппинга (value, params) чтобы он нормально отвечал как на /all?departmentId так и на /all?
-    @GetMapping(value = "", params = "/all?departmentId")
+    @GetMapping(path = "/all?departmentId")
     public String allDepartment(@RequestParam("departmentId") int department) throws DepartmentNotExistException {
         if (department <= 5 && department > 0) {
             return employeeService.getAllDepartmentEmployee(department);
@@ -44,7 +44,7 @@ public class EmployeeController {
         }
     }
 
-    @GetMapping("/all")
+    @GetMapping(path = "/all")
     public String allEmployeers() {
         return employeeService.getAllEmployeers();
     }
