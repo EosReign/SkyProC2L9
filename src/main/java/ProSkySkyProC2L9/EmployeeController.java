@@ -12,11 +12,6 @@ public class EmployeeController {
     public EmployeeController(EmployeeService employeeService) {
         this.employeeService = employeeService;
     }
-
-    @GetMapping("")
-    public String hello() {
-        return "<span><b>Welcome to EmployeeMachine!</b><span><br>";
-    }
     @GetMapping(path = "/max-salary")
     public String maxSalary(@RequestParam("departmentId") int department) throws DepartmentNotExistException {
         if (department <= 5 && department > 0) {
@@ -34,7 +29,6 @@ public class EmployeeController {
             throw new DepartmentNotExistException("Такого отдела не существует");
         }
     }
-//Как использовать конструкцию мэппинга (value, params) чтобы он нормально отвечал как на /all?departmentId так и на /all?
     @GetMapping(path = "/all?departmentId")
     public String allDepartment(@RequestParam("departmentId") Integer department) throws DepartmentNotExistException {
         if (department <= 5 && department > 0) {
@@ -46,4 +40,4 @@ public class EmployeeController {
         }
     }
 }
-//p;
+
