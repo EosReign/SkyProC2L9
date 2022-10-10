@@ -39,7 +39,7 @@ public class EmployeeController {
     public String allDepartment(@RequestParam("departmentId") Integer department) throws DepartmentNotExistException {
         if (department <= 5 && department > 0) {
             return employeeService.getAllDepartmentEmployee(department);
-        } else if (department != null) {
+        } else if (department == null) {
             return employeeService.getAllEmployeers();
         } else {
             throw new DepartmentNotExistException("Такого отдела не существует");
