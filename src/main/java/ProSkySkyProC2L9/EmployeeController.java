@@ -31,13 +31,14 @@ public class EmployeeController {
     }
     @GetMapping(path = "/all")
     public String allDepartment(@RequestParam("departmentId") Integer department) throws DepartmentNotExistException {
-        if (department <= 5 && department > 0) {
-            return employeeService.getAllDepartmentEmployee(department);
-        } else if (department == null) {
+        if (department == null) {
             return employeeService.getAllEmployeers();
+        } else if (department <= 5 && department > 0) {
+            return employeeService.getAllDepartmentEmployee(department);
         } else {
             throw new DepartmentNotExistException("Такого отдела не существует");
         }
+
     }
 }
-
+///*
